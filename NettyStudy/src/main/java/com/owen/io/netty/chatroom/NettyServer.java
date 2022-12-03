@@ -29,6 +29,7 @@ public class NettyServer {
             bootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
+                        // 每一个客户端连接成功均运行一次，所以有多少个客户端就有多少组编码解码器和ServerHandler
                         @Override
                         protected void initChannel(SocketChannel channel) throws Exception {
                             ChannelPipeline pipeline = channel.pipeline();
@@ -38,9 +39,10 @@ public class NettyServer {
                         }
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)
-                    // 取消Nagle算法
-                    .option(ChannelOption.TCP_NODELAY,true)
+                    // 取消Nagle算法，让消息及时发出，解决粘包问题
+                    .option(ChannelOption.TCP_NODELAY, true)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
+            // ChannelFuture#sync()等待绑定成功并返回
             ChannelFuture future = bootstrap.bind(port).sync();
             future.channel().closeFuture().sync();
         } finally {

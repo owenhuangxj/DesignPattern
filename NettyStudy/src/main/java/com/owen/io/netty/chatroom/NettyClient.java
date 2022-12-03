@@ -38,6 +38,7 @@ public class NettyClient {
                 public void operationComplete(ChannelFuture channelFuture) throws Exception {
                     if (channelFuture.isSuccess()) {
                         System.out.println("Connect to server success.");
+                        System.out.println("future == channelFuture:" + (future == channelFuture));
                         channel = channelFuture.channel();
                     } else {
                         System.out.println("Connect failed......");
@@ -47,9 +48,6 @@ public class NettyClient {
             future.sync();
             // Wait until the connection is closed.
             future.channel().closeFuture().sync();
-            while (true) {
-                Thread.sleep(1000);
-            }
         } catch (Exception exception) {
             exception.printStackTrace();
         } finally {
