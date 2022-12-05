@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id "io.franzbecker.gradle-lombok" version "3.1.0"   //在此添加插件否则lombok引用会失败
+}
+
+group 'com.owen'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation 'cglib:cglib:3.3.0'
+}
+
+apply plugin: "io.franzbecker.gradle-lombok"  //再次应用插件 只需这两行即可实现lombok的功能
+
+test {
+    useJUnitPlatform()
+}

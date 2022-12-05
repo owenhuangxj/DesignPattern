@@ -1,4 +1,4 @@
-package com.owen.proxy.dynamic;
+package com.owen.proxy.dynamic.jdk;
 /**
  * @Author：Owen
  * @Package：com.owen.proxy.dynamic
@@ -28,10 +28,10 @@ public class ProxyFactory {
                 new InvocationHandler() {
                     /**
                      *
-                     * @param proxy the proxy instance that the method was invoked on ->被代理对象
+                     * @param proxy the proxy instance that the method was invoked on ->代理对象
                      *
                      * @param method the {@code Method} instance corresponding to
-                     * the interface method invoked on the proxy instance.  The declaring
+                     * the interface method invoked on the proxy instance.The declaring
                      * class of the {@code Method} object will be the interface that
                      * the method was declared in, which may be a superinterface of the
                      * proxy interface that the proxy class inherits the method through. ->对应于在被代理对象上调用的接口方法实例
@@ -43,7 +43,7 @@ public class ProxyFactory {
                      * appropriate primitive wrapper class, such as
                      * {@code java.lang.Integer} or {@code java.lang.Boolean}. ->应用与被代理对象在调用接口方法时传递的实际参数
                      *
-                     * @return 被调用的目标方法的返回值，乜有返回值则返回null
+                     * @return 被调用的目标方法的返回值，沒有返回值则返回null
                      * @throws Throwable 异常
                      */
                     @Override

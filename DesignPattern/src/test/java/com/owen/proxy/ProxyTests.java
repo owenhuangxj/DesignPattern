@@ -8,7 +8,8 @@ package com.owen.proxy;
  * @Filename：ProxyTests
  */
 
-import com.owen.proxy.dynamic.ProxyFactory;
+import com.owen.proxy.dynamic.cglib.LogProxy;
+import com.owen.proxy.dynamic.jdk.ProxyFactory;
 import com.owen.proxy.staticproxy.UserServiceImpl;
 import com.owen.proxy.staticproxy.UserServiceProxy;
 import org.junit.jupiter.api.Assertions;
@@ -19,6 +20,11 @@ import org.junit.jupiter.api.Test;
  * @since 2022/12/4 21:32
  */
 public class ProxyTests {
+
+    private User buildUser() {
+        return User.builder().userId(500000).userName("OwenHuang").build();
+    }
+
     @Test
     public void testStaticProxy() {
         UserServiceProxy proxy = new UserServiceProxy(new UserServiceImpl());
@@ -27,9 +33,23 @@ public class ProxyTests {
 
     @Test
     void testDynamicProxy() {
-        UserService proxy = (UserService) new ProxyFactory(new UserServiceImpl()).getProxyInstance();
+        UserService target = new UserServiceImpl();
+        UserService proxy = (UserService) new ProxyFactory(target).getProxyInstance();
         System.out.println(proxy.getClass());
-        int result = proxy.save(User.builder().userId(500000).userName("OwenHuang").build());
+        int result = proxy.save(buildUser());
         Assertions.assertEquals(result, 1);
+        while (true) {
+
+        }
     }
+
+    @Test
+    void testCglibProxy() {
+        UserService userService = new UserServiceImpl();
+        System.out.println(userService);
+        UserService proxy = (UserService) new LogProxy().getLogProxy(userService);
+        System.out.println(proxy);
+        proxy.save(buildUser());
+    }
+
 }
