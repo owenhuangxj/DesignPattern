@@ -48,6 +48,7 @@ public class ProxyTests {
         UserService userService = new UserServiceImpl();
         System.out.println(userService);
         UserService proxy = (UserService) new LogProxy().getLogProxy(userService);
+        // 如果这里直接打印proxy而不是打印proxy.getClass会多打印两次日志，是程序调用了代理类对象的toString和hashCode方法的缘故
         System.out.println(proxy);
         proxy.save(buildUser());
     }

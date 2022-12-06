@@ -53,10 +53,16 @@ public class LogProxy implements MethodInterceptor {
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
         Calendar calendar = Calendar.getInstance();
+        System.out.println("obj: " + obj.getClass().getName() +" methodName: " + method.getName());
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("[" + format.format(calendar.getTime()) + "]开始事务......");
         Object result = proxy.invokeSuper(obj, args);
         System.out.println("[" + format.format(calendar.getTime()) + "]提交事务......");
         return result;
     }
+
+//    @Override
+//    public String toString() {
+//        return String.valueOf(this.getClass());
+//    }
 }
