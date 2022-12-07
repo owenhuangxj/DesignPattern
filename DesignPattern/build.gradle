@@ -14,6 +14,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
     implementation 'cglib:cglib:3.3.0'
+    implementation 'commons-io:commons-io:2.11.0'
 }
 
 apply plugin: "io.franzbecker.gradle-lombok"  //再次应用插件 只需这两行即可实现lombok的功能
