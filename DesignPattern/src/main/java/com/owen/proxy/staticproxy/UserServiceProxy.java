@@ -12,6 +12,8 @@ import com.owen.proxy.User;
 import com.owen.proxy.UserService;
 
 /**
+ * 代理模式：
+ * 代理类实现被代理类父接口并且持有被代理类引用
  * @author OwenHuang
  * @since 2022/12/4 21:03
  */

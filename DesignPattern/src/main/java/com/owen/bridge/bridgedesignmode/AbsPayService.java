@@ -11,6 +11,10 @@ package com.owen.bridge.bridgedesignmode;
 import java.math.BigDecimal;
 
 /**
+ * 抽象支付类
+ * 桥接模式：
+ *  1、支付渠道拥有支付模式的引用
+ *  2、支付渠道通过抽象类来引用支付方式
  * @author OwenHuang
  * @since 2022/12/7 20:37
  */
