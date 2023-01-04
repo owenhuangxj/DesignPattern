@@ -8,8 +8,8 @@ package com.owen.singleton;
  * @Filename：StrategyTests
  */
 
-import com.owen.strategy.Dog;
-import com.owen.strategy.Sorter;
+import com.owen.strategy.mashibing.Dog;
+import com.owen.strategy.mashibing.Sorter;
 import org.junit.jupiter.api.Test;
 
 /**

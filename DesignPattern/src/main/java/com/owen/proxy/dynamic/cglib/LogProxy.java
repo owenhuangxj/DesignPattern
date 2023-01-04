@@ -8,7 +8,6 @@ package com.owen.proxy.dynamic.cglib;
  * @Filename：LogProxy
  */
 
-import lombok.extern.slf4j.Slf4j;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

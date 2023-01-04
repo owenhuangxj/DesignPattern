@@ -16,6 +16,9 @@ import java.io.Serializable;
  */
 public class DoubleCheckLockSingleton implements Serializable {
 
+    /**
+     * volatile 防止指令重排
+     */
     private volatile static DoubleCheckLockSingleton instance;
 
     private DoubleCheckLockSingleton() {

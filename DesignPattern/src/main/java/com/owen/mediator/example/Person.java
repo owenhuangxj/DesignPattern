@@ -14,6 +14,9 @@ package com.owen.mediator.example;
  */
 public abstract class Person {
     protected String name;
+    /**
+     * 拥有Mediator对象，属于聚合关系：被依赖对象是通过构造方法而不是自己new出来的，所以是聚合而不是组合
+     */
     protected Mediator mediator;
 
     public Person(String name, Mediator mediator) {

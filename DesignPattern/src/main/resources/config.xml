@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<!--    <classes>-->
+<!--        <name>MT1101</name>-->
+<!--        <class>com.owen.strategy.congqin.MT1101ReceiptHandleStrategy</class>-->
+<!--    </classes>-->
+<!--    <classes>-->
+<!--        <name>MT2101</name>-->
+<!--        <class>com.owen.strategy.congqin.MT2101ReceiptHandleStrategy</class>-->
+<!--    </classes>-->
+    <class name = "MT1101" value = "com.owen.strategy.congqin.MT1101ReceiptHandleStrategy"/>
+    <class name = "MT2101" value = "com.owen.strategy.congqin.MT2101ReceiptHandleStrategy"/>
+</config>

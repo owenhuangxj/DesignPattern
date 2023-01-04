@@ -24,7 +24,7 @@ public class StaticInnerClassSingleton {
 
     static {
         // 静态代码块中访问某个静态变量（类变量）时必须保证静态代码块在这个被访问的静态变量之后，否则会报"非法前向引用"错误
-        System.out.println("The value of static filed A in static initialization block : " + staticVariable);
+        System.out.println("The value of static field staticVariable in static initialization block : " + staticVariable);
     }
 
     private static final class InstanceHolder {

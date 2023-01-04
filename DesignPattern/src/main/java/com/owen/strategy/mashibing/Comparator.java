@@ -1,4 +1,4 @@
-package com.owen.strategy;
+package com.owen.strategy.mashibing;
 /**
  * @Author：Owen
  * @Package：com.owen.strategy
